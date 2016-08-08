@@ -40,7 +40,10 @@
         <use xlink:href="#stop"></use>
       </svg>
     </button>
-    <input class="vertical-items" type="range" id="seek-bar" value="0">
+<!--    <input class="vertical-items" type="range" id="seek-bar" value="0">-->
+    <div class="progresbar vertical-items"  id="seekBar">
+        <div class="progres" id="progres"></div>
+    </div>
     <button class="vertical-items buttons mute" type="button" id="mute">
       <svg viewBox="0 0 100 100" class="icon sound_on transform-center">
         <use xlink:href="#sound_on"></use>

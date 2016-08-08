@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     padding: 5px;
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: opacity .3s;
     -moz-transition: opacity .3s;
     -o-transition: opacity .3s;
@@ -51,22 +51,22 @@
       top:0;
       width: em(40);
       height: em(40);
-      visibility: visible;
-      opacity: 1;
-    }
-    .stop{
       visibility: hidden;
       opacity: 0;
+    }
+    .stop{
+      visibility: visible;
+      opacity: 1;
       @extend .play;
     }
     &.active{
       .play{
-        visibility: hidden;
-        opacity: 0;
-      }
-      .stop{
         visibility: visible;
         opacity: 1;
+      }
+      .stop{
+        visibility: hidden;
+        opacity: 0;
       }
     }
   }
@@ -113,8 +113,19 @@
     }
   }
 }
-#seek-bar {
-  width: em(545);
+#seekBar {
+  width: 455px;
+  height: 5px;
+  background: red;
+  position: relative;
+  cursor: pointer;
+  .progres{
+    position: absolute;
+    left: 0;
+    top:0;
+    height: 100%;
+    background: blue;
+  }
 }
 #volume-bar {
   width: em(60);

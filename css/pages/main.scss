@@ -1,0 +1,125 @@
+#video-container {
+  width: em(640);
+  height: em(365);
+  position: relative;
+  display: inline-block;
+  &:hover{
+    #video-controls{
+      opacity: .9;
+    }
+  }
+  #video-controls {
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    opacity: 0;
+    -webkit-transition: opacity .3s;
+    -moz-transition: opacity .3s;
+    -o-transition: opacity .3s;
+    -ms-transition: opacity .3s;
+    transition: opacity .3s;
+    background: rgba(112,129,138,.9);
+  }
+}
+.buttons {
+  background: rgba(0,0,0,.5);
+  border: 0;
+  color: #EEE;
+  outline: none;
+  width: em(40);
+  height: em(40);
+  background: #ffffff;
+  transition: background .2s ease;
+  &:hover{
+    cursor: pointer;
+    background: #0371a8;
+    .icon{
+      fill: #ffffff;
+    }
+  }
+  &.play{
+    width: em(40);
+    height: em(40);
+    border-radius: 50%;
+    position: relative;
+    .play{
+      position: absolute;
+      left:0;
+      top:0;
+      width: em(40);
+      height: em(40);
+      visibility: visible;
+      opacity: 1;
+    }
+    .stop{
+      visibility: hidden;
+      opacity: 0;
+      @extend .play;
+    }
+    &.active{
+      .play{
+        visibility: hidden;
+        opacity: 0;
+      }
+      .stop{
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  &.mute{
+    position: relative;
+    width: em(40);
+    height: em(40);
+    border-radius: 50%;
+    .sound_on{
+
+      font-size: .5em;
+      visibility: visible;
+      opacity: 1;
+    }
+    .sound_off{
+      visibility: hidden;
+      opacity: 0;
+    }
+    &.active{
+      .sound_on{
+        fill:black;
+        visibility: hidden;
+        opacity: 0;
+      }
+      .sound_off{
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  &.fullscreen{
+    position: relative;
+    background: transparent;
+    transition: background .2s ease;
+    .fullscreen{
+      width: em(40);
+      height: em(40);
+      fill:#0371a8
+    }
+    &:hover{
+      .fullscreen{
+        fill: #ffffff;
+      }
+    }
+  }
+}
+#seek-bar {
+  width: em(545);
+}
+#volume-bar {
+  width: em(60);
+}
+.icon{
+  fill: #0371a8;
+  transition: opacity .2s ease, visibility .2s ease, fill .2s ease;
+}

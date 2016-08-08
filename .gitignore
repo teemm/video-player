@@ -1,0 +1,6 @@
+/videos
+/node_modules
+.sass-cache
+Homestead.yaml
+.env
+/.idea

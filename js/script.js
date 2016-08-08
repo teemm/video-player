@@ -227,11 +227,6 @@ function G(selector){
     //   $('html').addClass('no-touch');
     // }
   };
-  function currentTimePosition() {
-    var progresBarSize = document.getElementById("progres");
-    var persentage = (video.currentTime / video.duration) * 100;
-    progresBarSize.style.width = persentage + "%";
-  }
   var main = function(){
     htmlClassHandler();
   };
@@ -240,12 +235,14 @@ function G(selector){
   });
   window.addEventListener('load', function(e) {
     $('html').addClass("loaded");
+    var defaultContainer = document.getElementById("video-container");
     var video = document.getElementById("video");
     var playButton = document.getElementById("play-pause");
     var volumeBar = document.getElementById("volume-bar");
     var seekBar = document.getElementById("seekBar");
     var fullScreenButton = document.getElementById("full-screen");
     var muteButton = document.getElementById("mute");
+    var progresBarSize = document.getElementById("progres");
 
     playButton.addEventListener("click", function() {
       if(video.paused == true) {
@@ -268,24 +265,17 @@ function G(selector){
       }
     });
     seekBar.addEventListener("click", function(e) {
-      currentTimePosition();
-      console.log()
-      // video.currentTime = time;
-      // console.log(time);
-      // var width = e.seekBar.offsetLeft;
-      // console.log(width);
-      // alert(persentage);
-      var x = e.clientX;     // Get the horizontal coordinate
-      var y = e.clientY;     // Get the vertical coordinate
-      console.log(x,y);
+      var myPoing = e.pageX-(seekBar.offsetLeft + defaultContainer.offsetLeft);
+      var peresentOfItem = (myPoing / seekBar.offsetWidth) * 100;
+      progresBarSize.style.width = peresentOfItem;
+      video.currentTime = (peresentOfItem / 100) * video.duration;
     });
-
     seekBar.addEventListener("mouseover", function() {
       // console.log(video.currentTime);
     });
-
     video.addEventListener("timeupdate", function() {
-      currentTimePosition();
+      var persentage = (video.currentTime / video.duration) * 100;
+      progresBarSize.style.width = persentage + "%";
     });
     fullScreenButton.addEventListener("click", function() {
       video.webkitRequestFullscreen();

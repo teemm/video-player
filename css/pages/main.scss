@@ -27,17 +27,16 @@
 .buttons {
   background: rgba(0,0,0,.5);
   border: 0;
-  color: #EEE;
   outline: none;
   width: em(40);
   height: em(40);
-  background: #ffffff;
+  background: $white;
   transition: background .2s ease;
   &:hover{
     cursor: pointer;
-    background: #0371a8;
+    background: $def-blue;
     .icon{
-      fill: #ffffff;
+      fill: $white;
     }
   }
   &.play{
@@ -104,11 +103,11 @@
     .fullscreen{
       width: em(40);
       height: em(40);
-      fill:#0371a8
+      fill:$def-blue;
     }
     &:hover{
       .fullscreen{
-        fill: #ffffff;
+        fill: $white;
       }
     }
   }
@@ -131,6 +130,6 @@
   width: em(60);
 }
 .icon{
-  fill: #0371a8;
+  fill: $def-blue;
   transition: opacity .2s ease, visibility .2s ease, fill .2s ease;
 }

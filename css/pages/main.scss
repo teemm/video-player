@@ -50,22 +50,22 @@
       top:0;
       width: em(40);
       height: em(40);
-      visibility: hidden;
-      opacity: 0;
-    }
-    .stop{
       visibility: visible;
       opacity: 1;
+    }
+    .stop{
+      visibility: hidden;
+      opacity: 0;
       @extend .play;
     }
     &.active{
       .play{
-        visibility: visible;
-        opacity: 1;
-      }
-      .stop{
         visibility: hidden;
         opacity: 0;
+      }
+      .stop{
+        visibility: visible;
+        opacity: 1;
       }
     }
   }
@@ -115,15 +115,17 @@
 #seekBar {
   width: 455px;
   height: 5px;
-  background: red;
+  background: $white;
   position: relative;
   cursor: pointer;
+  border-radius: em(7);
   .progres{
     position: absolute;
     left: 0;
     top:0;
     height: 100%;
-    background: blue;
+    background: $def-blue;
+    border-radius: em(7);
   }
 }
 #volume-bar {

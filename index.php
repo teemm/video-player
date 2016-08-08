@@ -26,7 +26,7 @@
 </head>
 <body>
 <div id="video-container">
-  <video id="video" width="640" height="365">
+  <video id="video" width="640" height="365" loop>
     <source src="videos/mikethefrog.webm" type="video/webm">
     <source src="videos/mikethefrog.ogv" type="video/ogv">
     <source src="videos/mikethefrog.mp4" type="video/mp4">

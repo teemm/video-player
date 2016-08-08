@@ -55,7 +55,12 @@
       video.currentTime = (peresentOfItem / 100) * video.duration;
     });
     seekBar.addEventListener("mouseover", function() {
-      // console.log(video.currentTime);
+      var myPoing = e.pageX-(seekBar.offsetLeft + defaultContainer.offsetLeft);
+      var peresentOfItem = (myPoing / seekBar.offsetWidth) * 100;
+      progresBarSize.style.width = peresentOfItem;
+      var newTime = (peresentOfItem / 100) * video.duration;
+      // video.currentTime = newTime;
+      console.log(myPoing);
     });
     video.addEventListener("timeupdate", function() {
       var persentage = (video.currentTime / video.duration) * 100;
@@ -79,7 +84,6 @@
       video.volume = volumeBar.value;
     });
   });
-
   window.addEventListener('resize', function(e) {
     windowWidth = document.documentElement.clientWidth;
     windowHeight = document.documentElement.clientHeight;

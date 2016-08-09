@@ -244,14 +244,16 @@ function G(selector){
     var muteButton = document.getElementById("mute");
     var progresBarSize = document.getElementById("progres");
 
-    playButton.addEventListener("click", function() {
-      if(video.paused == true) {
-        video.play();
-        playButton.classList.add('active');
-      }else{
-        video.pause();
-        playButton.classList.remove("active");
-      }
+    playButton.addEventListener("click", function(e) {
+        if(video.paused == true) {
+          if (!e) return;
+          video.play();
+          playButton.classList.add('active');
+        }else{
+          if (!e) return;
+          video.pause();
+          playButton.classList.remove("active");
+        }
     });
     muteButton.addEventListener("click", function() {
       if(volumeBar.value !== '0'){
@@ -265,32 +267,55 @@ function G(selector){
       }
     });
     seekBar.addEventListener("click", function(e) {
+      //var myPoing = e.pageX-(seekBar.offsetLeft + defaultContainer.offsetLeft);
+      //var peresentOfItem = (myPoing / seekBar.offsetWidth) * 100;
+      //progresBarSize.style.left = -(100 - peresentOfItem)+"%";
+      //video.currentTime = (peresentOfItem / 100) * video.duration;
+
+
+      e.stopPropagation();
       var myPoing = e.pageX-(seekBar.offsetLeft + defaultContainer.offsetLeft);
       var peresentOfItem = (myPoing / seekBar.offsetWidth) * 100;
-      progresBarSize.style.width = peresentOfItem;
-      video.currentTime = (peresentOfItem / 100) * video.duration;
-    });
-    seekBar.addEventListener("mouseover", function() {
-      var myPoing = e.pageX-(seekBar.offsetLeft + defaultContainer.offsetLeft);
-      var peresentOfItem = (myPoing / seekBar.offsetWidth) * 100;
-      progresBarSize.style.width = peresentOfItem;
-      var newTime = (peresentOfItem / 100) * video.duration;
-      // video.currentTime = newTime;
-      console.log(myPoing);
+      var videoSize = -(100 - peresentOfItem)+"%";
+      var videoTimeNow = (peresentOfItem / 100) * video.duration;
+      progresBarSize.style.left = videoTimeNow;
+      video.currentTime = videoTimeNow;
+      console.log(video.currentTime);
+
+
+      //var checkingPauseInterval = setInterval(checkIfPaused, 100);
+      //function checkIfPaused(){
+      //  console.log('checking');
+      //  if (video.paused) {
+      //    //video.currentTime = 5;
+      //    //video.load();
+      //    video.play();
+      //    clearInterval(checkingPauseInterval);
+      //    console.log( video.currentTime)
+      //  }
+      //}
+
+      //console.log(video.seekable.start(0), video.seekable.end(0), video.seekable.length);
+      //console.log(videoTimeNow);
     });
     video.addEventListener("timeupdate", function() {
       var persentage = (video.currentTime / video.duration) * 100;
-      progresBarSize.style.width = persentage + "%";
+      progresBarSize.style.left = -(100 - persentage)+"%";
     });
     fullScreenButton.addEventListener("click", function() {
       video.webkitRequestFullscreen();
     });
-    // seekBar.addEventListener("mousedown", function() {
-    //   video.pause();
-    // });
-    // seekBar.addEventListener("mouseup", function() {
-    //   video.play();
-    // });
+    video.addEventListener('ended', function() {
+      video.currentTime = 0;
+      video.pause();
+      playButton.classList.remove('active');
+    });
+     seekBar.addEventListener("mousedown", function() {
+       //video.pause();
+     });
+     seekBar.addEventListener("mouseup", function() {
+       //video.play();
+     });
     volumeBar.addEventListener("change", function() {
       if (volumeBar.value == '0'){
         muteButton.classList.add('active');

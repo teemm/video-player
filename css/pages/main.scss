@@ -8,6 +8,15 @@
       opacity: .9;
     }
   }
+  .left-control{
+    float: left;
+  }
+  .right-control{
+    float: right;
+  }
+  &:after{
+    @extend %pseudo-clear;
+  }
   #video-controls {
     text-align: left;
     position: absolute;
@@ -119,9 +128,11 @@
   position: relative;
   cursor: pointer;
   border-radius: em(7);
+  overflow: hidden;
   .progres{
     position: absolute;
-    left: 0;
+    width: 100%;
+    left: -100%;
     top:0;
     height: 100%;
     background: $def-blue;

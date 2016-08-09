@@ -26,38 +26,40 @@
 </head>
 <body>
 <div id="video-container">
-  <video id="video" width="640" height="365" loop>
-    <source src="videos/mikethefrog.webm" type="video/webm">
-    <source src="videos/mikethefrog.ogv" type="video/ogv">
-    <source src="videos/mikethefrog.mp4" type="video/mp4">
+  <video id="video" width="640" height="365" preload>
+    <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4">
   </video>
   <div id="video-controls">
-    <button class="buttons play vertical-items" type="button" id="play-pause">
-      <svg viewBox="0 0 100 100" class="icon play">
-        <use xlink:href="#play"></use>
-      </svg>
-      <svg viewBox="0 0 100 100" class="icon stop">
-        <use xlink:href="#stop"></use>
-      </svg>
-    </button>
-<!--    <input class="vertical-items" type="range" id="seek-bar" value="0">-->
-    <div class="progresbar vertical-items"  id="seekBar">
+    <div class="left-control vertical-items">
+      <button class="buttons play vertical-items" type="button" id="play-pause">
+        <svg viewBox="0 0 100 100" class="icon play">
+          <use xlink:href="#play"></use>
+        </svg>
+        <svg viewBox="0 0 100 100" class="icon stop">
+          <use xlink:href="#stop"></use>
+        </svg>
+      </button>
+      <!--    <input class="vertical-items" type="range" id="seek-bar" value="0">-->
+      <div class="progresbar vertical-items"  id="seekBar">
         <div class="progres" id="progres"></div>
+      </div>
     </div>
-    <button class="vertical-items buttons mute" type="button" id="mute">
-      <svg viewBox="0 0 100 100" class="icon sound_on transform-center">
-        <use xlink:href="#sound_on"></use>
-      </svg>
-      <svg viewBox="0 0 100 100" class="icon sound_off transform-center">
-        <use xlink:href="#sound_off"></use>
-      </svg>
-    </button>
-    <input class="buttons vertical-items" type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
-    <button class="buttons vertical-items fullscreen" type="button" id="full-screen">
-      <svg viewBox="0 0 100 100" class="icon fullscreen transform-center">
-        <use xlink:href="#fullscreen"></use>
-      </svg>
-    </button>
+    <div class="right-control vertical-items">
+      <button class="vertical-items buttons mute" type="button" id="mute">
+        <svg viewBox="0 0 100 100" class="icon sound_on transform-center">
+          <use xlink:href="#sound_on"></use>
+        </svg>
+        <svg viewBox="0 0 100 100" class="icon sound_off transform-center">
+          <use xlink:href="#sound_off"></use>
+        </svg>
+      </button>
+      <input class="buttons vertical-items" type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+      <button class="buttons vertical-items fullscreen" type="button" id="full-screen">
+        <svg viewBox="0 0 100 100" class="icon fullscreen transform-center">
+          <use xlink:href="#fullscreen"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </div>
 <?php include("img/svg-sprite.svg"); ?>

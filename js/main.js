@@ -16,7 +16,7 @@
   document.addEventListener('DOMContentLoaded', function(){
     main();
   });
-  window.addEventListener('load', function(e) {
+  window.addEventListener('load', function() {
     $('html').addClass("loaded");
     var defaultContainer = document.getElementById("video-container");
     var video = document.getElementById("video");
@@ -53,7 +53,6 @@
       }
     });
     seekBar.addEventListener("click", function(e) {
-
       var myPoing = e.pageX-(seekBar.offsetLeft + defaultContainer.offsetLeft);
       var peresentOfItem = (myPoing / seekBar.offsetWidth) * 100;
       //var videoSize = -(100 - peresentOfItem)+"%";
@@ -75,11 +74,15 @@
       video.pause();
       playButton.classList.remove('active');
     });
-     seekBar.addEventListener("mousedown", function() {
+     seekBar.addEventListener("mousedown", function(e) {
+       muteButton.classList.remove('active');
        video.pause();
+
      });
      seekBar.addEventListener("mouseup", function() {
+       muteButton.classList.add('active');
        video.play();
+
      });
     volumeBar.addEventListener("change", function() {
       if (volumeBar.value == '0'){

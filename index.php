@@ -3,26 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico?v=1"/>
-
-  <!--  for Android-->
   <meta name="theme-color" content="#CDA34C">
   <link rel="icon" sizes="192x192" href="img/favicon192.png">
-
   <link rel="stylesheet" href="css/style.css">
-<!--  <link rel="stylesheet" href="css/style.css?v=--><?//=$random_number_for_disabling_cache?><!--">-->
-
-  <title>My Boilerplate</title>
-
-<!--  <meta name="description" content="--><?//= $texts['tags']['description'][$lang]?><!--" />-->
-<!--  <meta property="og:type" content="website">-->
-<!--  <meta property="fb:app_id" content="--><?//= $texts['tags']['app-id'][$lang]?><!--" />-->
-<!--  <meta property="og:image" content="--><?//= $valid_url['default'] . $texts['tags']['image'][$lang]?><!--">-->
-<!--  <meta property="og:url" content="--><?//= $valid_url['default'] . $texts['tags']['url'][$lang]?><!--">-->
-<!--  <meta property="og:title" content="--><?//= $texts['tags']['fb-title'][$lang]?><!--">-->
-<!--  <meta property="og:description" content="--><?//= $texts['tags']['fb-description'][$lang]?><!--">-->
-
+  <title>Videp Player</title>
 </head>
 <body>
 <div id="video-container">

@@ -2,7 +2,6 @@
   "use strict";
   var windowWidth = document.documentElement.clientWidth,
       windowHeight = document.documentElement.clientHeight;
-
   var htmlClassHandler = function () {
     // if(isMobile){
     //   $('html').addClass('mobile')
@@ -30,7 +29,6 @@
     var videoDurationControl = document.getElementById("video-duration");
     var currentTimeCounter = document.getElementById("current-time");
 
-
     playButton.addEventListener("click", function(e) {
         if(video.paused == true) {
           if (!e) return;
@@ -50,10 +48,12 @@
         } else {
           video.muted = false;
           muteButton.classList.remove('active');
+          volumeBar.value == '0'
         }
       }
     });
     seekBar.addEventListener("click", function(e) {
+
       var myPoing = e.pageX-(seekBar.offsetLeft + defaultContainer.offsetLeft);
       var peresentOfItem = (myPoing / seekBar.offsetWidth) * 100;
       //var videoSize = -(100 - peresentOfItem)+"%";
@@ -95,5 +95,4 @@
     windowWidth = document.documentElement.clientWidth;
     windowHeight = document.documentElement.clientHeight;
   });
-
 })(window,document);

@@ -122,7 +122,7 @@
   }
 }
 #seekBar {
-  width: 455px;
+  width: 375px;
   height: 5px;
   background: $white;
   position: relative;
@@ -138,6 +138,9 @@
     background: $def-blue;
     border-radius: em(7);
   }
+}
+.video-time{
+  margin-left: em(15);
 }
 #volume-bar {
   width: em(60);

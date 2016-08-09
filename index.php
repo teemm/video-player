@@ -43,6 +43,11 @@
       <div class="progresbar vertical-items"  id="seekBar">
         <div class="progres" id="progres"></div>
       </div>
+      <div class="video-time vertical-items">
+        <span class="current-time" id="current-time">0</span>
+        <span class="slesh">/</span>
+        <span class="video-duration" id="video-duration">3:57</span>
+      </div>
     </div>
     <div class="right-control vertical-items">
       <button class="vertical-items buttons mute" type="button" id="mute">

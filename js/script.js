@@ -243,6 +243,9 @@ function G(selector){
     var fullScreenButton = document.getElementById("full-screen");
     var muteButton = document.getElementById("mute");
     var progresBarSize = document.getElementById("progres");
+    var videoDurationControl = document.getElementById("video-duration");
+    var currentTimeCounter = document.getElementById("current-time");
+
 
     playButton.addEventListener("click", function(e) {
         if(video.paused == true) {
@@ -267,40 +270,18 @@ function G(selector){
       }
     });
     seekBar.addEventListener("click", function(e) {
-      //var myPoing = e.pageX-(seekBar.offsetLeft + defaultContainer.offsetLeft);
-      //var peresentOfItem = (myPoing / seekBar.offsetWidth) * 100;
-      //progresBarSize.style.left = -(100 - peresentOfItem)+"%";
-      //video.currentTime = (peresentOfItem / 100) * video.duration;
-
-
-      e.stopPropagation();
       var myPoing = e.pageX-(seekBar.offsetLeft + defaultContainer.offsetLeft);
       var peresentOfItem = (myPoing / seekBar.offsetWidth) * 100;
-      var videoSize = -(100 - peresentOfItem)+"%";
+      //var videoSize = -(100 - peresentOfItem)+"%";
       var videoTimeNow = (peresentOfItem / 100) * video.duration;
       progresBarSize.style.left = videoTimeNow;
       video.currentTime = videoTimeNow;
-      console.log(video.currentTime);
-
-
-      //var checkingPauseInterval = setInterval(checkIfPaused, 100);
-      //function checkIfPaused(){
-      //  console.log('checking');
-      //  if (video.paused) {
-      //    //video.currentTime = 5;
-      //    //video.load();
-      //    video.play();
-      //    clearInterval(checkingPauseInterval);
-      //    console.log( video.currentTime)
-      //  }
-      //}
-
-      //console.log(video.seekable.start(0), video.seekable.end(0), video.seekable.length);
-      //console.log(videoTimeNow);
     });
     video.addEventListener("timeupdate", function() {
       var persentage = (video.currentTime / video.duration) * 100;
       progresBarSize.style.left = -(100 - persentage)+"%";
+      currentTimeCounter.innerHTML = parseInt(video.currentTime);
+      videoDurationControl.innerHTML = parseInt(video.duration);
     });
     fullScreenButton.addEventListener("click", function() {
       video.webkitRequestFullscreen();
@@ -311,10 +292,10 @@ function G(selector){
       playButton.classList.remove('active');
     });
      seekBar.addEventListener("mousedown", function() {
-       //video.pause();
+       video.pause();
      });
      seekBar.addEventListener("mouseup", function() {
-       //video.play();
+       video.play();
      });
     volumeBar.addEventListener("change", function() {
       if (volumeBar.value == '0'){
@@ -324,6 +305,7 @@ function G(selector){
       }
       video.volume = volumeBar.value;
     });
+    videoDurationControl.innerHTML = parseInt(video.duration);
   });
   window.addEventListener('resize', function(e) {
     windowWidth = document.documentElement.clientWidth;

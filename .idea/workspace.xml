@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0c6c640-2987-4c54-9d40-6ae6946c90b4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/jquery-1.12.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/lib/my-lib.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/script.js" afterPath="$PROJECT_DIR$/js/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/script.min.js" afterPath="$PROJECT_DIR$/js/script.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/script.min.js.map" afterPath="$PROJECT_DIR$/js/script.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/grunt" afterPath="$PROJECT_DIR$/node_modules/.bin/grunt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/autoprefixer/node_modules/.bin/browserslist" afterPath="$PROJECT_DIR$/node_modules/autoprefixer/node_modules/.bin/browserslist" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-cli/node_modules/.bin/nopt" afterPath="$PROJECT_DIR$/node_modules/grunt-cli/node_modules/.bin/nopt" />
